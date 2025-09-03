@@ -7,7 +7,12 @@ const PORT = process.env.PORT || 3000;
 const APP_NAME = process.env.APP_NAME;
 
 const cors = require("cors"); // Import cors
+require("dotenv").config();
+
+const helmet = require("helmet"); // Import helmet
+
 app.use(cors());
+app.use(helmet());
 
 app.get("/api/data", (req, res) => {
   res.json({ message: "This data is open for everyone!" });
